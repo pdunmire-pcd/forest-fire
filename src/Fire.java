@@ -1,4 +1,19 @@
+import java.util.Set;
+import java.util.HashSet;
+
 public class Fire {
+
+    public static void main(String[] args){
+        Location p = new Location(0,6);
+        System.out.println(p);
+        System.out.println(p.matchR());
+        System.out.println(p.matchC());
+        Location q = new Location(0,6);
+
+        Set<Location> visitedLocations = new HashSet<>();
+        visitedLocations.add(p);
+        System.out.println(visitedLocations.contains(q));
+    }
     /**
      * Returns how long it takes for all vulnerable trees to be set on fire if a
      * match is lit at a given location.
