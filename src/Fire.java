@@ -1,3 +1,7 @@
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Fire {
     /**
      * Returns how long it takes for all vulnerable trees to be set on fire if a
@@ -45,6 +49,16 @@ public class Fire {
         //some sort of way to keep track of time aka timer
         //will need a helper
 
-        return -1;// return will be an int... the time at which the final tree to be incinerated starts burning
+        // return will be an int... the time at which the final tree to be incinerated starts burning
+
+        <Set>Location> visited = new HashSet<>();
+        Queue<Location> queue = new LinkedList<>();
+    }
+
+    //location method
+    public static List<Location> possibleMoves(char[][] forest, int matchR, int matchC){
+
+
+
     }
 }
