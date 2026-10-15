@@ -72,12 +72,29 @@ public class Fire {
     //location method
     public static List<Location> possibleMoves(char[][] forest){
 
+        List<Location> neighbors = new LinkedList<>();
+    
         int[][] moves = new int[][]{
             { -1,0}, //up
             {1, 0}, //down
             {0,-1}, //left
             {0,1} //right
         };
+
+        for(int [] move : moves){
+            
+
+        }
+
+        //how long it took to reach the tree
+        //every move = time
+        // int array took me this long to get to this row column
+
+
+
+
+
+
 
 
 
