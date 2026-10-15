@@ -1,6 +1,8 @@
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+import java.util.Set;
 
 public class Fire {
     /**
@@ -51,12 +53,19 @@ public class Fire {
 
         // return will be an int... the time at which the final tree to be incinerated starts burning
 
-        <Set>Location> visited = new HashSet<>();
+        <Set<Location> visited = new HashSet<>();
         Queue<Location> queue = new LinkedList<>();
     }
 
     //location method
-    public static List<Location> possibleMoves(char[][] forest, int matchR, int matchC){
+    public static List<Location> possibleMoves(char[][] forest){
+
+        int[][] moves = new int[][]{
+             { -1,0}, //up
+            {1, 0}, //down
+            {0,-1}, //left
+            {0,1} //right
+        };
 
 
 
