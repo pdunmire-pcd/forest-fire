@@ -71,7 +71,14 @@ public class Fire {
     }
 
     //location method
-    public static List<Location> possibleMoves(char[][] forest, int matchR, int matchC){
+    public static List<Location> possibleMoves(char[][] forest){
+
+        int[][] moves = new int[][]{
+            { -1,0}, //up
+            {1, 0}, //down
+            {0,-1}, //left
+            {0,1} //right
+        };
 
 
 
