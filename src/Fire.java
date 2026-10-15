@@ -38,8 +38,13 @@ public class Fire {
     public static int timeToBurn(char[][] forest, int matchR, int matchC) {
         // HINT: when adding to your BFS queue, you can include more information than
         // just a location. What other information might be useful?
-
         // Implement this AND add more tests!!!
-        return -1;
+
+        //Breath First Search with queue...
+        //visited
+        //some sort of way to keep track of time aka timer
+        //will need a helper
+
+        return -1;// return will be an int... the time at which the final tree to be incinerated starts burning
     }
 }
