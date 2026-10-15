@@ -1,3 +1,3 @@
-public record Location(int matchR, int matchC) {
+public record Location(int row, int column) {
     
 }

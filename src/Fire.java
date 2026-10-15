@@ -6,8 +6,8 @@ public class Fire {
     public static void main(String[] args){
         Location p = new Location(0,6);
         System.out.println(p);
-        System.out.println(p.matchR());
-        System.out.println(p.matchC());
+        System.out.println(p.row());
+        System.out.println(p.column());
         Location q = new Location(0,6);
 
         Set<Location> visitedLocations = new HashSet<>();
