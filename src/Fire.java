@@ -1,10 +1,22 @@
+import java.util.Set;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Set;
 
 public class Fire {
+
+    public static void main(String[] args){
+        Location p = new Location(0,6);
+        System.out.println(p);
+        System.out.println(p.row());
+        System.out.println(p.column());
+        Location q = new Location(0,6);
+
+        Set<Location> visitedLocations = new HashSet<>();
+        visitedLocations.add(p);
+        System.out.println(visitedLocations.contains(q));
+    }
     /**
      * Returns how long it takes for all vulnerable trees to be set on fire if a
      * match is lit at a given location.
@@ -53,7 +65,7 @@ public class Fire {
 
         // return will be an int... the time at which the final tree to be incinerated starts burning
 
-        <Set<Location> visited = new HashSet<>();
+        Set<Location> visited = new HashSet<>();
         Queue<Location> queue = new LinkedList<>();
     }
 
