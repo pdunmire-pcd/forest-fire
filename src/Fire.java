@@ -64,6 +64,7 @@ public class Fire {
         //will need a helper
 
         // return will be an int... the time at which the final tree to be incinerated starts burning
+        Location start = 
 
         Set<Location> visited = new HashSet<>();
         Queue<Location> queue = new LinkedList<>();
