@@ -65,11 +65,12 @@ public class Fire {
 
         // return will be an int... the time at which the final tree to be incinerated starts burning
         if (forest == null || forest.length == 0 ||
-        matchR < 0 || matchR >= forest.length ||
-        matchC < 0 || matchC >= forest[matchR].length ||
-        forest[matchR][matchC] != 't') {
-        throw new NoTreeException();
-}
+                matchR < 0 || matchR >= forest.length ||
+                matchC < 0 || matchC >= forest[matchR].length ||
+                forest[matchR][matchC] != 't') {
+            throw new NoTreeException();
+        }
+
         Burning start = new Burning(matchR, matchC, 0);
 
         Set<Location> visited = new HashSet<>();
@@ -86,34 +87,34 @@ public class Fire {
             Burning current = queue.remove();
             time = current.time();
             Location currentLocation =
-            new Location(current.row(), current.col());
+                new Location(current.row(), current.col());
 
             for (Location neighbor : possibleMoves(forest, currentLocation)) {
 
-            if (!visited.contains(neighbor)) {
+                if (!visited.contains(neighbor)) {
 
-                visited.add(neighbor);
+                    visited.add(neighbor);
 
-                Burning next = new Burning(
-                    neighbor.row(),
-                    neighbor.column(),
-                    current.time() + 1
-                );
+                    Burning next = new Burning(
+                        neighbor.row(),
+                        neighbor.column(),
+                        current.time() + 1
+                    );
 
-                queue.add(next);
+                    queue.add(next);
+                }
             }
         }
-    }
 
         return time;
     }
 
     //location method
     public static List<Location> possibleMoves(
-    char[][] forest, Location current){
+            char[][] forest, Location current){
 
         List<Location> neighbors = new LinkedList<>();
-    
+
         int[][] moves = new int[][]{
             { -1,0}, //up
             {1, 0}, //down
@@ -123,18 +124,18 @@ public class Fire {
 
         for(int [] move : moves){
 
-        int newRow = current.row() + move[0];
-        int newCol = current.column() + move[1];
+            int newRow = current.row() + move[0];
+            int newCol = current.column() + move[1];
 
-        if(newRow >= 0 && newRow < forest.length){
-            if( newCol >= 0 && newCol < forest[newRow].length){
-              if (forest[newRow][newCol] == 't') {
-                Location neighbor = new Location(newRow, newCol);
-                    neighbors.add(neighbor);
-              }
+            if(newRow >= 0 && newRow < forest.length){
+                if( newCol >= 0 && newCol < forest[newRow].length){
+                    if (forest[newRow][newCol] == 't') {
+                        Location neighbor = new Location(newRow, newCol);
+                        neighbors.add(neighbor);
+                    }
+                }
             }
         }
-    }
         return neighbors;
     }
 

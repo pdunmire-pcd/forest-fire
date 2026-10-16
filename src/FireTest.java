@@ -90,14 +90,14 @@ public class FireTest {
     //Diagonal only -- trees that touch only at corners.. the fire should not spread...
     @Test
     public void testDiagonalTrees() {
-    char[][] forest = {
-        {'t', '.'},
-        {'.', 't'}
-    };
+        char[][] forest = {
+            {'t', '.'},
+            {'.', 't'}
+        };
 
-    int actual = Fire.timeToBurn(forest, 0, 0);
-    assertEquals(0, actual);
-}
+        int actual = Fire.timeToBurn(forest, 0, 0);
+        assertEquals(0, actual);
+    }
 
     //All trees -- a full 3 by 3 grid of the t with the match in the center, then in a corner
     @Test
@@ -144,6 +144,17 @@ public class FireTest {
 
         assertThrows(NoTreeException.class, () -> {
             Fire.timeToBurn(forest, 0, 1);
+        });
+    }
+
+    @Test
+    public void testMatchOffGrid() {
+        char[][] forest = {
+            {'t', '.', 't'}
+        };
+
+        assertThrows(NoTreeException.class, () -> {
+            Fire.timeToBurn(forest, 5, 0);
         });
     }
 }
