@@ -105,7 +105,7 @@ public class Fire {
         }
     }
 
-        return time; 
+        return time;
     }
 
     //location method
