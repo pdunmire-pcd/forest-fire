@@ -40,9 +40,51 @@ public class FireTest {
     }
 
     //Straight line: a row of 5 trees with the match at one end and then antoher test with the match in the middle. Should be different times...
+    @Test 
+    public void testStraightLineMatchAtEnd(){
+        char[][] forest = {
+            {'t', 't', 't', 't', 't'}
+        };
 
+        int matchR = 0;
+        int matchC = 0;
 
-    // Gap in the trees -- {t, t, ., t, t} with the match on the left.. it shouldn't count the . in the count...
+        int expected = 4;
+        int actual = Fire.timeToBurn(forest, matchR, matchC);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test 
+    public void testStraightLineMatchAtMiddle(){
+        char[][] forest = {
+            {'t', 't', 't', 't', 't'}
+        };
+
+        int matchR = 0;
+        int matchC = 2;
+
+        int expected = 2;
+        int actual = Fire.timeToBurn(forest, matchR, matchC);
+
+        assertEquals(expected, actual);
+    }
+    // Gap in the trees -- {t, t, ., t, t} with the match on the left.. the trees past the gap never burn, so they shouldn't count toward the time...
+    @Test 
+    public void testUnreachableTreesNotCounted(){
+        char[][] forest = {
+            {'t', 't', '.', 't', 't'}
+        };
+
+        int matchR = 0;
+        int matchC = 0;
+
+        int expected = 1;
+        int actual = Fire.timeToBurn(forest, matchR, matchC);
+
+        assertEquals(expected, actual);
+    }
+
 
     //Diagonal only -- trees that touch only at corners.. the fire should not spread...
 
