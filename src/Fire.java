@@ -64,10 +64,11 @@ public class Fire {
         //will need a helper
 
         // return will be an int... the time at which the final tree to be incinerated starts burning
-        Location start = fireStarterLocation(forest);
 
         Set<Location> visited = new HashSet<>();
-        Queue<Location> queue = new LinkedList<>();
+        Queue<Burning> queue = new LinkedList<>();
+
+        return ();
     }
 
     //location method
@@ -79,22 +80,5 @@ public class Fire {
             {0,-1}, //left
             {0,1} //right
         };
-
-
-
-    }
-
-    public static Location fireStarterLocation(char[][] forest){
-        Location location = null;
-
-        for(int r = 0; r < forest.length; r++){
-            for (int c = 0; c < maze[r].length; c++){
-                if(forest[r][c] == ''){
-                    location = new Location (r, c);
-                }
-            }
-        }
-        if(location == null) throw new NoTreeException();
-        return location;
     }
 }
