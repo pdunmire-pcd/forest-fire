@@ -64,14 +64,33 @@ public class Fire {
         //will need a helper
 
         // return will be an int... the time at which the final tree to be incinerated starts burning
-        Location start = fireStarterLocation(forest);
+        Location start = new Location(matchR, matchC);
 
         Set<Location> visited = new HashSet<>();
         Queue<Location> queue = new LinkedList<>();
+
+        //start the queue at matchR and matchC
+        queue.add(start);
+
+        int size = queue.size();
+
+        //while 
+        while(!queue.isEmpty()){
+            int size = queue.size();
+
+            for(int i =0; i <size;i++ ){
+                Location current = queue.remove();
+            }
+             time++;
+        
+           
+        }
+
     }
 
     //location method
-    public static List<Location> possibleMoves(char[][] forest){
+    public static List<Location> possibleMoves(
+    char[][] forest, Location current){
 
         List<Location> neighbors = new LinkedList<>();
     
@@ -83,22 +102,20 @@ public class Fire {
         };
 
         for(int [] move : moves){
-            
 
+        int newRow = current.row() + move[0];
+        int newCol = current.column() + move[1];
+
+        if(newRow >= 0 && newRow < forest.length){
+            if( newCol >= 0 && newCol < forest[newRow].length){
+              if (forest[newRow][newCol] == 't') {
+                Location neighbor = new Location(newRow, newCol);
+                    neighbors.add(neighbor);
+              }
+            }
         }
-
-        //how long it took to reach the tree
-        //every move = time
-        // int array took me this long to get to this row column
-
-
-
-
-
-
-
-
-
+    }
+        return neighbors;
     }
 
     public static Location fireStarterLocation(char[][] forest){
