@@ -64,26 +64,44 @@ public class Fire {
         //will need a helper
 
         // return will be an int... the time at which the final tree to be incinerated starts burning
-        Location start = new Location(matchR, matchC);
+
+        Burning start = new Burning(matchR, matchC, 0);
 
         Set<Location> visited = new HashSet<>();
-        Queue<Location> queue = new LinkedList<>();
+        Queue<Burning> queue = new LinkedList<>();
 
         //start the queue at matchR and matchC
         queue.add(start);
+        visited.add(new Location(matchR, matchC));
 
-        //while 
+        int time = 0;
+
+        //while
         while(!queue.isEmpty()){
-            int size = queue.size();
+            Burning current = queue.remove();
+            // TODO: add current's unvisited tree neighbors to the queue
+            time = current.time();
+            Location currentLocation =
+            new Location(current.row(), current.col());
 
-            for(int i =0; i <size;i++ ){
-                Location current = queue.remove();
+            for (Location neighbor : possibleMoves(forest, currentLocation)) {
+
+            if (!visited.contains(neighbor)) {
+
+                visited.add(neighbor);
+
+                Burning next = new Burning(
+                    neighbor.row(),
+                    neighbor.column(),
+                    current.time() + 1
+                );
+
+                queue.add(next);
             }
-             time++;
-        
-           
         }
+    }
 
+        return time; // TODO: return the time the last tree catches fire
     }
 
     //location method
@@ -115,4 +133,5 @@ public class Fire {
     }
         return neighbors;
     }
+
 }
