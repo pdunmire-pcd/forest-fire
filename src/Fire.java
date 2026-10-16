@@ -79,7 +79,6 @@ public class Fire {
         //while
         while(!queue.isEmpty()){
             Burning current = queue.remove();
-            // TODO: add current's unvisited tree neighbors to the queue
             time = current.time();
             Location currentLocation =
             new Location(current.row(), current.col());
@@ -101,7 +100,7 @@ public class Fire {
         }
     }
 
-        return time; // TODO: return the time the last tree catches fire
+        return time;
     }
 
     //location method
