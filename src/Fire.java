@@ -72,8 +72,6 @@ public class Fire {
         //start the queue at matchR and matchC
         queue.add(start);
 
-        int size = queue.size();
-
         //while 
         while(!queue.isEmpty()){
             int size = queue.size();
@@ -116,19 +114,5 @@ public class Fire {
         }
     }
         return neighbors;
-    }
-
-    public static Location fireStarterLocation(char[][] forest){
-        Location location = null;
-
-        for(int r = 0; r < forest.length; r++){
-            for (int c = 0; c < maze[r].length; c++){
-                if(forest[r][c] == ''){
-                    location = new Location (r, c);
-                }
-            }
-        }
-        if(location == null) throw new NoTreeException();
-        return location;
     }
 }
