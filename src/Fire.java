@@ -64,7 +64,12 @@ public class Fire {
         //will need a helper
 
         // return will be an int... the time at which the final tree to be incinerated starts burning
-
+        if (forest == null || forest.length == 0 ||
+        matchR < 0 || matchR >= forest.length ||
+        matchC < 0 || matchC >= forest[matchR].length ||
+        forest[matchR][matchC] != 't') {
+        throw new NoTreeException();
+}
         Burning start = new Burning(matchR, matchC, 0);
 
         Set<Location> visited = new HashSet<>();
